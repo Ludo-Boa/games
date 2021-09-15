@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <title>Space Invaders</title>
+</head>
+
+<body>
+    <main id="mainWrapper">
+        <div class="gameInfo">
+            <div class="scoreGame">
+                0000
+            </div>
+            <div class="lifehero">
+                <div id="life1" class="life"></div>
+                <div id="life2" class="life"></div>
+                <div id="life3" class="life"></div>
+            </div>
+        </div>
+        <div id="playground"></div>
+        
+
+        <div class="game-over">
+
+        </div>
+    </main>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        var laser = new Sprite("assets/img/missile.png", "missile", playground.clientWidth / 2, 400);
+        laser.display = "none";
+
+        var lasers = [{ top: hero.top, left: hero.left = playground.clientWidth / 2 - 52 }];
+
+        var hero = new Sprite("assets/img/hero.png", "hero", 100, 400); 
+        hero.left = playground.clientWidth / 2 - 52;
+        hero.top = playground.clientHeight - 32;
+
+        
+
+        var squid1 = new Sprite("assets/img/squid.gif", "squid", 100, 100);
+        var squid2 = new Sprite("assets/img/squid.gif", "squid", 150, 100); 
+        var squid3 = new Sprite("assets/img/squid.gif", "squid", 200, 100);
+        var squid4 = new Sprite("assets/img/squid.gif", "squid", 250, 100);
+        var squid5 = new Sprite("assets/img/squid.gif", "squid", 300, 100);
+        var squid6 = new Sprite("assets/img/squid.gif", "squid", 350, 100);
+        var squid7 = new Sprite("assets/img/squid.gif", "squid", 400, 100);
+        var squid8 = new Sprite("assets/img/squid.gif", "squid", 450, 100);
+        var squid9 = new Sprite("assets/img/squid.gif", "squid", 500, 100);
+        var squid10 = new Sprite("assets/img/squid.gif", "squid", 550, 100);
+        var squid11 = new Sprite("assets/img/squid.gif", "squid", 600, 100);
+        var squid12 = new Sprite("assets/img/squid.gif", "squid", 650, 100); 
+
+        document.onkeydown = function(e){
+
+            var key = e.keyCode;
+            // Arrow right = 39
+            // Arrow left = 37
+            // Spacebar = 32
+            // j = 74
+            // k = 75
+            // 4 = 100
+            // 6 = 102
+            
+            // Déplacement du hero gauche et droite
+            if (key === 39 || key === 75 || key === 102) {
+                hero.left = hero.left + 10;
+            } else if (key === 37 || key === 74 || key === 100) {
+                hero.left = hero.left - 10;
+            }
+
+            if (hero.left < 0) {
+                hero.left = 0;
+            }
+            if (hero.left > playground.clientWidth - hero._node.width) {
+                hero.left = playground.clientWidth - hero._node.width;
+            }
+
+            // Tir du hero
+            if (key === 32) {
+                // on fait apparaitre le laser
+                laser.display = "block";
+                laser.left = hero.left + (hero._node.width - laser ._node.width) / 2;
+                laser.top = hero.top;
+                lasers.push({
+                    left: laser.left = hero.left + (hero._node.width - laser ._node.width) / 2,
+                    top: hero.top
+                });
+                // laser.startAnimation(moveLaser, 20);
+            }
+            
+        };
+
+        function moveLaser(laser) {
+            laser.top -= 10;
+        }
+    </script>
+</body>
+
+</html>

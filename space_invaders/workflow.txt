@@ -1,0 +1,17 @@
+
+1. Définir le cadre de jeu
+2. Création du canon et gestion du déplacement gauche et droite
+3. Création des ennemis (3 genres : small, medium, large) + gestion du déplacement droite, gauche et bas
+4. Création du boss + gestion du déplacement gauche et droite
+5. Création du tir laser du canon + gestion des ennemis et des points
+6. Création du tir des ennemis + gestion des vies du canon (3 vies)
+
+/*
+Envahisseur de la rangée 1 - 5 points
+Envahisseur de la rangée 2 - 10 points
+Envahisseur de la rangée 3 - 15 points
+Envahisseur de la rangée 4 - 20 points
+Envahisseur de la rangée 5 - 25 points
+Envahisseur de la rangée 6 - 30 points
+invadersCommander - 200 points
+*/
